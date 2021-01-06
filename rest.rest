@@ -1,0 +1,37 @@
+###
+GET http://127.0.0.1:7283/api/items?addressItem=9&bitMap=true&buffer=true
+
+###
+
+PUT http://127.0.0.1:7283/api/items/5
+content-type: application/json
+
+{
+    "value":"-8"
+}
+
+###
+PUT http://127.0.0.1:7283/api/bitmaps/6
+content-type: application/json
+
+{
+    "value":
+        [
+            {
+                "bit": 1,
+                "value": true
+            },
+            {
+                "bit": 30,
+                "value": true
+            }, 
+            {
+                "bit": 2,
+                "value": true
+            },
+            {
+                "bit": 3,
+                "value": true
+            }
+        ]
+}

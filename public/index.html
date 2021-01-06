@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+</head>
+
+<body>
+    <div id="items">
+        <div class="row">
+            <div class="col"  v-for="item in items">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            
+                            
+                            <th scope="col">Свойство</th>
+                            <th scope="col">Значение</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>value</td>
+                            <td>{{item.value}}</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>lastChange</td>
+                            <td>{{item.lastChange}}</td>
+                        </tr>
+                        <tr>
+                            <td>idItem</td>
+                            <td>{{item.idItem}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+
+        const ItemsApp = {
+            data() {
+                return {
+                    items: []
+                }
+            },
+            mounted() {
+                setInterval(() => {
+                    axios
+                        .get('http://127.0.0.1:7283/api/items')
+                        .then(response => (this.items = response.data.data));
+                }, 1000)
+            }
+        }
+
+        Vue.createApp(ItemsApp).mount('#items')
+    </script>
+
+
+</body>
+
+</html>

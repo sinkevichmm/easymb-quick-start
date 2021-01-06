@@ -1,0 +1,157 @@
+{
+    "restapi": {
+        "port": 7283,
+        "enable": true,
+        "publicFolder": {
+            "enable": true,
+            "path": "public"
+        },
+        "accessList": [
+            {
+                "ip": "127.0.0.1",
+                "read": true,
+                "write": true
+            }
+        ]
+    },
+    "links": [
+        {
+            "id": 3,
+            "name": "test",
+            "description": "test",
+            "protocol": "mb-rtu",
+            "port": "COM3",
+            "baudRate": 115200,
+            "dataBits": 8,
+            "parity": "N",
+            "stopBits": 2,
+            "timeoutMs": 100,
+            "reqestMs": 100,
+            "devices": [
+                {
+                    "id": 1,
+                    "address": 42,
+                    "groupRequest": "all",
+                    "items": [
+                        {
+                            "id": 1,
+                            "type": "float3412",
+                            "direction": "in",
+                            "enable": true,
+                            "buffer": {
+                                "enable": true,
+                                "size": 100
+                            },
+                            "remoteAccess": {
+                                "restapi": {
+                                    "enable": true
+                                }
+                            },
+                            "address": 0
+                        },
+                        {
+                            "id": 2,
+                            "type": "int12",
+                            "direction": "in",
+                            "enable": true,
+                            "buffer": {
+                                "enable": true,
+                                "size": 100
+                            },
+                            "remoteAccess": {
+                                "restapi": {
+                                    "enable": true
+                                }
+                            },
+                            "address": 17
+                        },
+                        {
+                            "id": 3,
+                            "type": "long3412",
+                            "direction": "in",
+                            "enable": true,
+                            "buffer": {
+                                "enable": true,
+                                "size": 100
+                            },
+                            "remoteAccess": {
+                                "restapi": {
+                                    "enable": true
+                                }
+                            },
+                            "address": 26
+                        },
+                        {
+                            "id": 4,
+                            "type": "float3412",
+                            "direction": "in",
+                            "enable": true,
+                            "buffer": {
+                                "enable": true,
+                                "size": 100
+                            },
+                            "remoteAccess": {
+                                "restapi": {
+                                    "enable": true
+                                }
+                            },
+                            "address": 41
+                        },
+                        {
+                            "id": 5,
+                            "type": "int12",
+                            "direction": "out",
+                            "enable": true,
+                            "buffer": {
+                                "enable": true,
+                                "size": 100
+                            },
+                            "remoteAccess": {
+                                "restapi": {
+                                    "enable": true
+                                }
+                            },
+                            "address": 8
+                        },
+                        {
+                            "id": 6,
+                            "type": "32bit3412",
+                            "direction": "out",
+                            "enable": true,
+                            "buffer": {
+                                "enable": true,
+                                "size": 100
+                            },
+                            "remoteAccess": {
+                                "restapi": {
+                                    "enable": true
+                                }
+                            },
+                            "bitMap": [
+                                {
+                                    "bit": 1,
+                                    "description": "TEST",
+                                    "on": "ON",
+                                    "off": "OFF!",
+                                    "buffer": {
+                                        "enable": true
+                                    }
+                                },
+                                {
+                                    "bit": 30,
+                                    "description": "TEST",
+                                    "on": "ON",
+                                    "off": "OFF!",
+                                    "buffer": {
+                                        "enable": true
+                                    }
+                                }
+                            ],
+                            "address": 9
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
